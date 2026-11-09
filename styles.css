@@ -30,7 +30,7 @@
     --radius-medium: 22px;
     --radius-large: 34px;
 
-    --content-width: 1120px;
+    --content-width: 1520px;
 }
 
 /* ---------- 2. Reset and base ---------- */
@@ -108,7 +108,8 @@ body>a:first-child:focus {
 
 /* ---------- 4. Navigation ---------- */
 
-#top nav {
+#top nav,
+.portfolio-nav {
     position: sticky;
     z-index: 10;
     top: 14px;
@@ -131,7 +132,8 @@ body>a:first-child:focus {
     -webkit-backdrop-filter: blur(16px);
 }
 
-#top nav a {
+#top nav a,
+.portfolio-nav a {
     display: inline-block;
     padding: 8px 13px;
     border-radius: 999px;
@@ -145,7 +147,8 @@ body>a:first-child:focus {
         box-shadow 160ms ease;
 }
 
-#top nav a:hover {
+#top nav a:hover,
+.portfolio-nav a:hover {
     transform: translateY(-2px);
     background: var(--yellow);
     box-shadow: 2px 2px 0 var(--line);
@@ -307,7 +310,7 @@ main>section:nth-of-type(3n + 2) {
 }
 
 main>section:nth-of-type(3n) {
-    background: #eef5f3;
+    background: #f6f2e9;
 }
 
 main>section>p:first-child {
@@ -476,6 +479,20 @@ article li::marker {
     background: var(--coral);
 }
 
+.case-deck-link {
+    display: inline-block;
+    padding: 7px 12px;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    background: var(--yellow);
+    box-shadow: 2px 2px 0 var(--line);
+    color: var(--ink);
+    font-size: .88rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+.case-deck-link:hover { background: var(--coral); color: var(--ink); }
+
 /* ---------- 9. Skills list ---------- */
 
 #skills dl {
@@ -572,6 +589,19 @@ body>footer a {
     }
 
     #top nav a {
+        padding: 7px 10px;
+        font-size: 0.82rem;
+    }
+
+    .portfolio-nav {
+        position: sticky;
+        top: 8px;
+        width: min(calc(100% - 24px), var(--content-width));
+        margin-top: 8px;
+        border-radius: 18px;
+    }
+
+    .portfolio-nav a {
         padding: 7px 10px;
         font-size: 0.82rem;
     }
@@ -839,4 +869,189 @@ body>footer a {
     .portfolio-page .site-header { width: min(calc(100% - 24px), var(--content-width)); padding: 10px; }
     .portfolio-page .site-nav { gap: 2px; }
     .portfolio-page .site-nav a { padding: 7px 8px; font-size: .75rem; }
+}
+
+/* Project cards reveal as they enter the visitor's view. */
+#education > article.scroll-preview,
+#competitions > article.scroll-preview,
+#projects > article.scroll-preview,
+#skills dl > div.scroll-preview,
+#achievements > article.scroll-preview {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 560ms ease var(--preview-delay, 0ms), transform 560ms cubic-bezier(.2,.75,.25,1) var(--preview-delay, 0ms), translate 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+#education > article.scroll-preview.is-visible,
+#competitions > article.scroll-preview.is-visible,
+#projects > article.scroll-preview.is-visible,
+#skills dl > div.scroll-preview.is-visible,
+#achievements > article.scroll-preview.is-visible { opacity: 1; transform: translateY(0); }
+#projects > article {
+    width: min(88%, 820px);
+    margin: 20px auto 20px 0;
+    padding: 20px 23px;
+    border: 1.5px solid rgb(32 32 30 / 22%);
+    border-radius: 16px;
+    background: rgb(255 253 248 / 82%);
+    box-shadow: 4px 4px 0 rgb(32 32 30 / 10%);
+}
+#projects > article:nth-of-type(even) { margin-right: 0; margin-left: auto; }
+#projects > article:first-of-type { padding-top: 20px; border-top: 1.5px solid rgb(32 32 30 / 22%); }
+#projects > article:last-of-type { padding-bottom: 20px; }
+@media (prefers-reduced-motion: reduce) {
+    #education > article.scroll-preview,
+    #competitions > article.scroll-preview,
+    #projects > article.scroll-preview,
+    #skills dl > div.scroll-preview,
+    #achievements > article.scroll-preview { opacity: 1; transform: none; transition: none; }
+}
+@media (max-width: 760px) {
+    #projects > article { width: 96%; padding: 17px; }
+}
+
+/* Give the full portfolio a balanced left-right rhythm. */
+#education,
+#competitions,
+#skills,
+#achievements { grid-column: 1 / -1; }
+
+/* Offset the major panels so the long page has a more editorial rhythm. */
+#about { width: 94%; justify-self: start; }
+#education { width: 80%; justify-self: start; }
+#competitions { width: 90%; justify-self: end; }
+#projects { width: 100%; justify-self: center; }
+#skills { width: 82%; justify-self: start; }
+#achievements { width: 90%; justify-self: end; }
+#contact { width: 76%; justify-self: center; }
+
+#education,
+#competitions,
+#achievements {
+    display: grid;
+    align-content: start;
+    gap: 14px 22px;
+}
+#education { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#competitions,
+#achievements { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#achievements { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#education > p:first-child,
+#education > h2,
+#competitions > p:first-child,
+#competitions > h2,
+#achievements > p:first-child,
+#achievements > h2 { grid-column: 1 / -1; }
+
+#education > article,
+#competitions > article,
+#achievements > article {
+    min-width: 0;
+    margin: 0;
+    padding: 20px;
+    border: 1.5px solid rgb(32 32 30 / 18%);
+    border-radius: 15px;
+    background: rgb(255 253 248 / 84%);
+    box-shadow: 3px 4px 0 rgb(32 32 30 / 8%);
+}
+#education > article:first-of-type,
+#competitions > article:first-of-type,
+#achievements > article:first-of-type { padding-top: 20px; border-top: 1.5px solid rgb(32 32 30 / 18%); }
+#education > article:last-child,
+#competitions > article:last-child,
+#achievements > article:last-child { padding-bottom: 20px; }
+#competitions > article:nth-of-type(3) { grid-column: 1 / -1; width: 88%; justify-self: start; }
+#skills dl { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+#achievements > article { border-left: 4px solid var(--blue); }
+#achievements > article:nth-of-type(2) { transform: translateY(14px); }
+#achievements > article:nth-of-type(3) { border-left-color: var(--coral); }
+
+#achievements > article.credential-card {
+    background: rgb(255 253 248 / 62%);
+    border-color: rgb(255 255 255 / 78%);
+    box-shadow: 0 10px 28px rgb(45 55 55 / 8%), inset 0 1px 0 rgb(255 255 255 / 75%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.credential-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 0; }
+
+#education > article,
+#competitions > article,
+#projects > article,
+#achievements > article,
+#skills dl > div {
+    transition: translate 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+#education > article:hover,
+#competitions > article:hover,
+#projects > article:hover,
+#achievements > article:hover,
+#skills dl > div:hover {
+    translate: 0 -4px;
+    border-color: rgb(32 32 30 / 42%);
+    box-shadow: 5px 8px 0 rgb(32 32 30 / 11%);
+}
+
+@media (max-width: 760px) {
+    #about,
+    #education,
+    #competitions,
+    #projects,
+    #skills,
+    #achievements,
+    #contact { width: 100%; justify-self: stretch; }
+    #education,
+    #competitions,
+    #achievements { grid-template-columns: 1fr; gap: 12px; }
+    #competitions > article:nth-of-type(3) { grid-column: auto; width: 100%; }
+    #achievements > article:nth-of-type(2) { transform: none; }
+    #skills dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Reduce nested framing and make the long portfolio read as one connected path. */
+main { row-gap: 52px; }
+main > section {
+    border: 1px solid rgb(32 32 30 / 12%);
+    border-radius: 28px;
+    box-shadow: none;
+}
+main > section:not(#contact)::after {
+    position: absolute;
+    z-index: 4;
+    bottom: -39px;
+    left: 50%;
+    display: grid;
+    width: 27px;
+    height: 27px;
+    transform: translateX(-50%);
+    place-items: center;
+    border: 1.5px solid rgb(32 32 30 / 42%);
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    content: "↓";
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1;
+}
+main > section:not(#contact)::before {
+    position: absolute;
+    z-index: 0;
+    bottom: -52px;
+    left: 50%;
+    width: 2px;
+    height: 52px;
+    transform: translateX(-50%);
+    background: rgb(32 32 30 / 24%);
+    content: "";
+}
+#projects > article { width: min(82%, 1050px); }
+#projects > article:nth-of-type(even) { margin-right: 0; margin-left: auto; }
+@media (max-width: 760px) {
+    main { row-gap: 42px; }
+    #achievements { grid-template-columns: 1fr; }
+    main > section:not(#contact)::after { bottom: -35px; }
+    main > section:not(#contact)::before { bottom: -42px; height: 42px; }
+}
+@media (max-width: 480px) {
+    #skills dl { grid-template-columns: 1fr; }
 }
