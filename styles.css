@@ -584,17 +584,8 @@ article li::marker {
     text-decoration: none;
 }
 
-#contact .contact-actions { margin: 18px 0 0; }
 #contact .email-cta {
-    display: inline-block;
-    padding: 9px 16px;
-    border: 2px solid var(--line);
-    border-radius: var(--radius-small);
-    background: var(--paper);
-    box-shadow: 3px 3px 0 var(--line);
-    color: var(--ink);
-    font-weight: 850;
-    text-decoration: none;
+    white-space: nowrap;
     transition: transform 160ms ease, box-shadow 160ms ease;
 }
 #contact .email-cta:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--line); }
