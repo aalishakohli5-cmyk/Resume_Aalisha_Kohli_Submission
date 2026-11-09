@@ -1,6 +1,6 @@
-# Aalisha Kohli — Portfolio
+# Aalisha Kohli — Resume [submission ]
 
-A personal portfolio introducing Aalisha's studies, projects, case competitions, skills, achievements, and contact details. The site is built with plain HTML, CSS, and JavaScript, with no build step or framework required.
+A personal Website  introducing myself
 
 ## Pages and sections
 
@@ -40,7 +40,7 @@ Open `index.html` in a browser, or use a local static server such as the VS Code
 python3 -m http.server 5500
 ```
 
-Then open <http://localhost:5500>.
+Then open [http://localhost:5500](http://localhost:5500).
 
 ## Main files
 
