@@ -963,7 +963,7 @@ body>footer a {
 #skills dl { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 #achievements > article { border-left: 4px solid var(--blue); }
 #achievements > article:nth-of-type(2) { transform: translateY(14px); }
-#achievements > article:nth-of-type(3) { border-left-color: var(--coral); }
+#achievements > article:nth-of-type(3) { border-left-color: var(--blue); }
 
 #achievements > article.credential-card {
     background: rgb(255 253 248 / 62%);
