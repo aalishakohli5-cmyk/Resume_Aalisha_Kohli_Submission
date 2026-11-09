@@ -1,0 +1,769 @@
+/* ================================
+   Aalisha Kohli — Resume
+   Clay + neo-brutalist visual style
+   ================================ */
+
+/* ---------- 1. Theme ---------- */
+
+:root {
+    color-scheme: light;
+
+    --page: #f3eee5;
+    --paper: #fffdf8;
+    --paper-warm: #f8f1e7;
+    --ink: #20201e;
+    --muted: #66635e;
+    --line: #252522;
+
+    --coral: #f17a5d;
+    --yellow: #f3c95b;
+    --blue: #8ec7d5;
+    --green: #a9c59c;
+    --lavender: #b5a2ca;
+
+    --shadow-hard: 7px 7px 0 var(--line);
+    --shadow-soft:
+        10px 10px 24px rgb(80 61 42 / 10%),
+        -8px -8px 22px rgb(255 255 255 / 75%);
+
+    --radius-small: 12px;
+    --radius-medium: 22px;
+    --radius-large: 34px;
+
+    --content-width: 1120px;
+}
+
+/* ---------- 2. Reset and base ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 8% 8%, rgb(241 122 93 / 11%), transparent 28rem),
+        radial-gradient(ellipse at 90% 28%, rgb(142 199 213 / 15%), transparent 32rem),
+        var(--page);
+    color: var(--ink);
+    font-family:
+        Inter, Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: #174d70;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: #a6422b;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--coral);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+::selection {
+    color: var(--ink);
+    background: var(--yellow);
+}
+
+/* ---------- 3. Skip link ---------- */
+
+body>a:first-child {
+    position: fixed;
+    z-index: 20;
+    top: 12px;
+    left: 12px;
+    transform: translateY(-160%);
+    padding: 10px 16px;
+    border: 2px solid var(--line);
+    border-radius: var(--radius-small);
+    background: var(--yellow);
+    color: var(--ink);
+    font-weight: 800;
+    box-shadow: 4px 4px 0 var(--line);
+}
+
+body>a:first-child:focus {
+    transform: translateY(0);
+}
+
+/* ---------- 4. Navigation ---------- */
+
+#top nav {
+    position: sticky;
+    z-index: 10;
+    top: 14px;
+    display: flex;
+    width: min(calc(100% - 36px), var(--content-width));
+    margin: 14px auto 28px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+
+    border: 1px solid rgb(255 255 255 / 75%);
+    border-radius: 999px;
+    background: rgb(255 253 248 / 72%);
+    box-shadow:
+        0 8px 30px rgb(38 33 27 / 10%),
+        inset 0 1px 0 rgb(255 255 255 / 85%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+#top nav a {
+    display: inline-block;
+    padding: 8px 13px;
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 0.88rem;
+    font-weight: 750;
+    text-decoration: none;
+    transition:
+        background-color 160ms ease,
+        transform 160ms ease,
+        box-shadow 160ms ease;
+}
+
+#top nav a:hover {
+    transform: translateY(-2px);
+    background: var(--yellow);
+    box-shadow: 2px 2px 0 var(--line);
+}
+
+/* ---------- 5. Hero ---------- */
+
+#top>div {
+    position: relative;
+    width: min(calc(100% - 36px), var(--content-width));
+    margin: 0 auto 38px;
+    padding: clamp(32px, 7vw, 82px) 28px;
+    overflow: hidden;
+    border: 2px solid var(--line);
+    border-radius: var(--radius-large);
+    background:
+        radial-gradient(circle at 88% 18%, rgb(255 255 255 / 45%) 0 5%, transparent 5.5%),
+        radial-gradient(circle at 92% 25%, rgb(255 255 255 / 32%) 0 2%, transparent 2.5%),
+        var(--coral);
+    box-shadow: var(--shadow-hard);
+    text-align: center;
+}
+
+#top>div::before,
+#top>div::after {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    border: 2px solid var(--line);
+    content: "";
+    pointer-events: none;
+}
+
+#top>div::before {
+    top: 28px;
+    left: 30px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--yellow);
+    box-shadow: 4px 4px 0 var(--line);
+}
+
+#top>div::after {
+    right: 35px;
+    bottom: 28px;
+    width: 48px;
+    height: 48px;
+    transform: rotate(12deg);
+    border-radius: 12px;
+    background: var(--blue);
+    box-shadow: 4px 4px 0 var(--line);
+}
+
+#top>div>* {
+    position: relative;
+    z-index: 1;
+}
+
+#top>div>p:first-child {
+    margin: 0 0 12px;
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+#top h1 {
+    margin: 0;
+    font-size: clamp(3rem, 9vw, 7rem);
+    font-weight: 950;
+    letter-spacing: -0.075em;
+    line-height: 0.98;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0 rgb(255 255 255 / 45%);
+}
+
+#top h1+p {
+    margin: 22px 0;
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+#top address {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-style: normal;
+}
+
+#top address a,
+#top address span {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+#top>div>p:last-child {
+    display: flex;
+    margin: 22px 0 0;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#top>div>p:last-child a {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 2px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+    box-shadow: 3px 3px 0 var(--line);
+    color: var(--ink);
+    font-size: 0.9rem;
+    font-weight: 850;
+    text-decoration: none;
+    transition:
+        transform 160ms ease,
+        box-shadow 160ms ease;
+}
+
+#top>div>p:last-child a:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--line);
+}
+
+/* ---------- 6. Main layout ---------- */
+
+main {
+    display: grid;
+    width: min(calc(100% - 36px), var(--content-width));
+    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+main>section {
+    position: relative;
+    min-width: 0;
+    padding: clamp(22px, 4vw, 34px);
+    border: 2px solid var(--line);
+    border-radius: var(--radius-medium);
+    background: var(--paper);
+    box-shadow: var(--shadow-soft);
+    scroll-margin-top: 112px;
+}
+
+main>section:nth-of-type(3n + 1) {
+    background: var(--paper);
+}
+
+main>section:nth-of-type(3n + 2) {
+    background: #f8f4eb;
+}
+
+main>section:nth-of-type(3n) {
+    background: #eef5f3;
+}
+
+main>section>p:first-child {
+    margin: 0 0 7px;
+    color: var(--muted);
+    font-size: 0.73rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+main>section>h2 {
+    display: inline-block;
+    margin: 0 0 20px;
+    padding-bottom: 4px;
+    border-bottom: 3px solid var(--ink);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 950;
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+main>section>p:not(:first-child) {
+    margin-top: 0;
+}
+
+/* Let profile, projects, and contact span the full grid. */
+#about,
+#projects,
+#contact {
+    grid-column: 1 / -1;
+}
+
+/* ---------- 7. Resume entries ---------- */
+
+article {
+    padding: 17px 0;
+    border-top: 1px solid rgb(32 32 30 / 18%);
+}
+
+article:first-of-type {
+    padding-top: 0;
+    border-top: 0;
+}
+
+article:last-child {
+    padding-bottom: 0;
+}
+
+article header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 5px 18px;
+}
+
+article h3 {
+    margin: 0;
+    font-size: 1.08rem;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 1.35;
+}
+
+article header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 750;
+}
+
+article>p {
+    margin: 5px 0 0;
+    color: var(--muted);
+}
+
+article>p em {
+    font-weight: 650;
+}
+
+article ul {
+    margin: 12px 0 0;
+    padding-left: 1.3rem;
+}
+
+article li {
+    padding-left: 3px;
+}
+
+article li+li {
+    margin-top: 6px;
+}
+
+article li::marker {
+    color: #b34d36;
+}
+
+/* Education entries get a clear date / school rhythm. */
+#education article {
+    padding: 18px 0;
+}
+
+#education article header p {
+    padding: 4px 9px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--yellow);
+    color: var(--ink);
+    font-size: 0.78rem;
+}
+
+/* ---------- 8. Project and competition cards ---------- */
+
+#competitions article,
+#projects article,
+#achievements article {
+    position: relative;
+    padding-left: 18px;
+}
+
+#competitions article::before,
+#projects article::before,
+#achievements article::before {
+    position: absolute;
+    top: 20px;
+    bottom: 18px;
+    left: 0;
+    width: 5px;
+    border-radius: 999px;
+    background: var(--coral);
+    content: "";
+}
+
+#competitions article:nth-of-type(2)::before,
+#projects article:nth-of-type(2)::before,
+#achievements article:nth-of-type(2)::before {
+    background: var(--blue);
+}
+
+#competitions article:nth-of-type(3)::before,
+#projects article:nth-of-type(3)::before,
+#achievements article:nth-of-type(3)::before {
+    background: var(--green);
+}
+
+#projects article>p {
+    margin-top: 12px;
+}
+
+#projects article>p a {
+    display: inline-block;
+    padding: 7px 12px;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    background: var(--yellow);
+    box-shadow: 2px 2px 0 var(--line);
+    color: var(--ink);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+#projects article>p a:hover {
+    background: var(--coral);
+}
+
+/* ---------- 9. Skills list ---------- */
+
+#skills dl {
+    display: grid;
+    margin: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+#skills dl>div {
+    padding: 15px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-small);
+    background: var(--paper);
+    box-shadow: 3px 3px 0 rgb(32 32 30 / 18%);
+}
+
+#skills dt {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+#skills dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+/* ---------- 10. Contact section ---------- */
+
+#contact {
+    background: var(--yellow);
+}
+
+#contact>address {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-style: normal;
+}
+
+#contact>address a {
+    display: inline-block;
+    padding: 9px 14px;
+    border: 2px solid var(--line);
+    border-radius: var(--radius-small);
+    background: var(--paper);
+    box-shadow: 3px 3px 0 var(--line);
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+/* ---------- 11. Footer ---------- */
+
+body>footer {
+    display: flex;
+    width: min(calc(100% - 36px), var(--content-width));
+    margin: 32px auto 24px;
+    padding: 20px 4px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 2px solid var(--line);
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+body>footer p {
+    margin: 0;
+}
+
+body>footer a {
+    color: var(--ink);
+    font-weight: 800;
+}
+
+/* ---------- 12. Responsive layout ---------- */
+
+@media (max-width: 760px) {
+    html {
+        scroll-padding-top: 145px;
+    }
+
+    #top nav {
+        position: relative;
+        top: 0;
+        width: min(calc(100% - 24px), var(--content-width));
+        margin-top: 12px;
+        border-radius: 22px;
+    }
+
+    #top nav a {
+        padding: 7px 10px;
+        font-size: 0.82rem;
+    }
+
+    #top>div {
+        width: min(calc(100% - 24px), var(--content-width));
+        margin-bottom: 26px;
+        padding: 56px 20px;
+    }
+
+    #top>div::before {
+        top: 17px;
+        left: 17px;
+        width: 34px;
+        height: 34px;
+    }
+
+    #top>div::after {
+        right: 19px;
+        bottom: 17px;
+        width: 34px;
+        height: 34px;
+    }
+
+    main {
+        width: min(calc(100% - 24px), var(--content-width));
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    #about,
+    #projects,
+    #contact {
+        grid-column: auto;
+    }
+
+    main>section {
+        padding: 24px;
+    }
+
+    #skills dl {
+        grid-template-columns: 1fr;
+    }
+
+    body>footer {
+        width: min(calc(100% - 24px), var(--content-width));
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+
+    #top>div {
+        padding: 52px 16px;
+    }
+
+    #top h1 {
+        font-size: clamp(2.7rem, 15vw, 4rem);
+    }
+
+    #top h1+p {
+        letter-spacing: 0.07em;
+    }
+
+    #top address {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    #top address span[aria-hidden="true"] {
+        display: none;
+    }
+
+    main>section {
+        padding: 21px 18px;
+        border-radius: 18px;
+    }
+
+    article header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    body>footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* ---------- 13. Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* ---------- 14. Print-friendly resume ---------- */
+
+@media print {
+    :root {
+        --page: #fff;
+        --paper: #fff;
+        --paper-warm: #fff;
+        --ink: #000;
+        --muted: #333;
+        --line: #777;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+        font-size: 10pt;
+    }
+
+    body>a:first-child,
+    #top nav {
+        display: none;
+    }
+
+    #top>div {
+        width: 100%;
+        margin: 0 0 18px;
+        padding: 22px;
+        border: 1px solid #777;
+        background: #fff;
+        box-shadow: none;
+    }
+
+    #top>div::before,
+    #top>div::after {
+        display: none;
+    }
+
+    #top h1 {
+        font-size: 34pt;
+        text-shadow: none;
+    }
+
+    main {
+        display: block;
+        width: 100%;
+    }
+
+    main>section {
+        margin: 0 0 14px;
+        padding: 14px;
+        break-inside: avoid;
+        border: 1px solid #aaa;
+        background: #fff;
+        box-shadow: none;
+    }
+
+    main>section>h2 {
+        font-size: 15pt;
+    }
+
+    article {
+        break-inside: avoid;
+    }
+
+    a {
+        color: #000;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        overflow-wrap: anywhere;
+        font-size: 8pt;
+    }
+
+    #contact>address a,
+    #projects article>p a {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    body>footer {
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
